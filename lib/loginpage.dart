@@ -67,7 +67,7 @@ class welcomescreen extends StatelessWidget {
                   SizedBox(width: 15),
                   Icon(
                     Icons.login,
-                    color: Colors.white,
+                    color: Colors.black,
                   ),
                 ],
               ),

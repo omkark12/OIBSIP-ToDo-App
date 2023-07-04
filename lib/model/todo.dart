@@ -10,11 +10,14 @@ class Todo {
   });
   static List<Todo> todolist() {
     return [
-      Todo(id: "01", todotext: "beat aditya", isdone: true),
-      Todo(id: "02", todotext: "argue with aditya", isdone: true),
+      Todo(id: "01", todotext: "welcome", isdone: true),
+      Todo(
+        id: "02",
+        todotext: "this is an demo note",
+      ),
       Todo(
         id: "03",
-        todotext: "make aditya's girlfreind mine",
+        todotext: "explore all buttons to get familiar",
       ),
     ];
   }

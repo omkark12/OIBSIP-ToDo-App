@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:todoapp/model/Todo.dart';
+
 import 'package:todoapp/model/todo.dart';
 import 'package:todoapp/widgets/todo_item.dart';
 
@@ -12,6 +12,8 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   final todoslist = Todo.todolist();
+  List<Todo> foundtodo = [];
+  final todocontroller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +26,7 @@ class _HomeState extends State<Home> {
           children: [
             Icon(
               Icons.view_headline_sharp,
-              color: Colors.black87,
+              color: Colors.black,
             ),
             Container(
               height: 40,
@@ -32,8 +34,7 @@ class _HomeState extends State<Home> {
               child: ClipRect(
                 child: Image.asset("img/dog.jpeg"),
               ),
-              decoration:
-                  BoxDecoration(borderRadius: BorderRadius.circular(20)),
+              decoration: BoxDecoration(borderRadius: BorderRadius.circular(5)),
             ),
           ],
         ),
@@ -51,7 +52,7 @@ class _HomeState extends State<Home> {
                         contentPadding: EdgeInsets.zero,
                         prefixIcon: Icon(
                           Icons.search,
-                          color: Colors.black87,
+                          color: Colors.black,
                           size: 20,
                         ),
                         prefixIconConstraints: BoxConstraints(
@@ -59,7 +60,7 @@ class _HomeState extends State<Home> {
                           maxWidth: 20,
                         ),
                         border: InputBorder.none,
-                        hintText: 'search',
+                        hintText: 'functionality will be soon there',
                         hintStyle: TextStyle(
                           color: Colors.grey,
                         )),
@@ -101,6 +102,7 @@ class _HomeState extends State<Home> {
                     color: Colors.white30,
                   ),
                   child: TextField(
+                    controller: todocontroller,
                     decoration: InputDecoration(
                         hintText: "add new ", border: InputBorder.none),
                   ),
@@ -118,7 +120,9 @@ class _HomeState extends State<Home> {
                         fontSize: 40,
                       ),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      addtodo(todocontroller.text);
+                    },
                     style: ElevatedButton.styleFrom(primary: Colors.yellow),
                   )),
             ]),
@@ -129,6 +133,7 @@ class _HomeState extends State<Home> {
   }
 
   void handletodo(Todo todo) {
+    setState(() {});
     todo.isdone = !todo.isdone;
   }
 
@@ -136,5 +141,23 @@ class _HomeState extends State<Home> {
     setState(() {
       todoslist.removeWhere((item) => item.id == id);
     });
+  }
+
+  void addtodo(String toDo) {
+    setState(() {
+      todoslist.add(
+        Todo(
+            id: DateTime.now().millisecondsSinceEpoch.toString(),
+            todotext: toDo),
+      );
+    });
+    todocontroller.clear();
+  }
+
+  void filter(String enteredkey) {
+    List<Todo> results = [];
+    if (enteredkey.isEmpty) {
+      results = todoslist;
+    }
   }
 }

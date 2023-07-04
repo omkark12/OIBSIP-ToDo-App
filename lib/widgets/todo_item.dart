@@ -1,12 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../model/Todo.dart';
 import '../model/todo.dart';
 
 class todoitem extends StatelessWidget {
   final Todo todo;
   final onTodochanged;
+
   final deleteitem;
   const todoitem(
       {Key? key,
@@ -40,16 +40,20 @@ class todoitem extends StatelessWidget {
               decoration: todo.isdone ? TextDecoration.lineThrough : null),
         ),
         trailing: Container(
-          height: 20,
-          width: 20,
+          height: 40,
+          width: 40,
           decoration: BoxDecoration(
-            color: Colors.greenAccent,
+            color: Colors.yellow,
             borderRadius: BorderRadius.circular(5),
           ),
           child: IconButton(
             color: Colors.white,
             iconSize: 10,
-            icon: Icon(Icons.delete),
+            icon: Icon(
+              Icons.delete_outlined,
+              size: 20,
+              color: Colors.black,
+            ),
             onPressed: () {
               deleteitem(todo.id);
             },
