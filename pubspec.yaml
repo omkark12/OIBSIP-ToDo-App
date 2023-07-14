@@ -62,6 +62,7 @@ flutter:
   assets:
     - img/login.png
     - img/dog.jpeg
+    - img/back.png
 
   #   - images/a_dot_ham.jpeg
 

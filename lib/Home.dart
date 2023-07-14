@@ -18,9 +18,9 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white30,
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.yellowAccent,
+        backgroundColor: Colors.lightBlueAccent,
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -46,25 +46,9 @@ class _HomeState extends State<Home> {
               children: [
                 Container(
                   padding: EdgeInsets.symmetric(horizontal: 5, vertical: 15),
-                  decoration: BoxDecoration(color: Colors.black12),
-                  child: TextField(
-                    decoration: InputDecoration(
-                        contentPadding: EdgeInsets.zero,
-                        prefixIcon: Icon(
-                          Icons.search,
-                          color: Colors.black,
-                          size: 20,
-                        ),
-                        prefixIconConstraints: BoxConstraints(
-                          maxHeight: 20,
-                          maxWidth: 20,
-                        ),
-                        border: InputBorder.none,
-                        hintText: 'functionality will be soon there',
-                        hintStyle: TextStyle(
-                          color: Colors.grey,
-                        )),
-                  ),
+                  decoration: BoxDecoration(color: Colors.white),
+
+                  ///text
                 ),
                 Expanded(
                   child: ListView(
@@ -123,7 +107,8 @@ class _HomeState extends State<Home> {
                     onPressed: () {
                       addtodo(todocontroller.text);
                     },
-                    style: ElevatedButton.styleFrom(primary: Colors.yellow),
+                    style: ElevatedButton.styleFrom(
+                        primary: Colors.lightBlueAccent),
                   )),
             ]),
           )
